@@ -1,2 +1,2 @@
-rootProject.name = "Libraries"
+rootProject.name = "Pattern"
 

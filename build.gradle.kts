@@ -18,7 +18,4 @@ dependencies {
     // Lombok
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
-
-    // Depend
-    //implementation(files("C:/Users/denis/Desktop/Test Server/plugins/JNPC-1.0-SNAPSHOT.jar"))
 }
