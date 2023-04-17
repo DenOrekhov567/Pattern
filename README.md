@@ -6,6 +6,7 @@ Pattern — это плагин для Nukkit и PowerNukkitX, который п
 ``` java
     //Создадим процедуру, с видимостью только внутри класса
     //Я её вызываю в onEnable
+    //Мир, где располагается данная локация, должен быть загружен
     private void registerComponents() {
         //Создадим экземпляр класса локации, где NPC будет располагаться
         Location location = new Location(-41.5, 33, -38.5, 90, 0, getServer().getLevelByName("spawn"));
@@ -14,9 +15,11 @@ Pattern — это плагин для Nukkit и PowerNukkitX, который п
         EntityFactory.prepare(location);
         
         //Создадим экземпляр класса NPC для дальнейшей работы
-        NPC npc = EntityFactory.createNPC(location, "Test_Hologram1");
+        NPC npc = EntityFactory.createNPC(location, "Test_NPC");
         //Установим скин этому NPC
-        npc.setSkin(Utils.from(new File(getDataFolder() + "").toPath().resolve("skin.png")));
+        npc.setSkinFrom(String.valueOf(getDataFolder()), "skin.png");
+        //Установим title этому NPC
+        npc.setTitle("Скупщик");
         
         //Установим параметр, отвечающий за обратную связь при его ударе
         npc.setController((clickedNPC, player) -> player.sendMessage("lol"));
@@ -29,6 +32,7 @@ Pattern — это плагин для Nukkit и PowerNukkitX, который п
 ``` java
     //Создадим процедуру, с видимостью только внутри класса
     //Я её вызываю в onEnable
+    //Мир, где располагается данная локация, должен быть загружен
     private void registerComponents() {
         //Создадим экземпляр класса локации, где Hologram будет располагаться
         Location location = new Location(-41.5, 33, -38.5, 90, 0, getServer().getLevelByName("spawn"));
@@ -37,7 +41,7 @@ Pattern — это плагин для Nukkit и PowerNukkitX, который п
         EntityFactory.prepare(location);
 
         //Создадим экземпляр класса Hologram для дальнейшей работы
-        Hologram hologram = EntityFactory.createHologram(location, "Test_NPC1");
+        Hologram hologram = EntityFactory.createHologram(location, "Test_Hologram");
         //Установим ему параметр text
         hologram.setText("Hologram text");
         
