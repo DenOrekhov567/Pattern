@@ -8,14 +8,8 @@ Pattern — это плагин для Nukkit и PowerNukkitX, который п
     //Я её вызываю в onEnable
     //Мир, где располагается данная локация, должен быть загружен
     private void registerComponents() {
-        //Создадим экземпляр класса локации, где NPC будет располагаться
-        Location location = new Location(-41.5, 33, -38.5, 90, 0, getServer().getLevelByName("spawn"));
-        
-        //Загрузим чанки в этой локации для успешного спавна
-        EntityFactory.prepare(location);
-        
         //Создадим экземпляр класса NPC для дальнейшей работы
-        NPC npc = EntityFactory.createNPC(location, "Test_NPC");
+        NPC npc = EntityFactory.createNPC(new Location(-41.5, 33, -38.5, 90, 0, getServer().getLevelByName("spawn")), "Test_NPC");
         //Установим скин этому NPC
         npc.setSkinFrom(String.valueOf(getDataFolder()), "skin.png");
         //Установим title этому NPC
@@ -34,14 +28,8 @@ Pattern — это плагин для Nukkit и PowerNukkitX, который п
     //Я её вызываю в onEnable
     //Мир, где располагается данная локация, должен быть загружен
     private void registerComponents() {
-        //Создадим экземпляр класса локации, где Hologram будет располагаться
-        Location location = new Location(-41.5, 33, -38.5, 90, 0, getServer().getLevelByName("spawn"));
-        
-        //Загрузим чанки в этой локации для успешного спавна
-        EntityFactory.prepare(location);
-
         //Создадим экземпляр класса Hologram для дальнейшей работы
-        Hologram hologram = EntityFactory.createHologram(location, "Test_Hologram");
+        Hologram hologram = EntityFactory.createHologram(new Location(-41.5, 33, -38.5, 90, 0, getServer().getLevelByName("spawn")), "Test_Hologram");
         //Установим ему параметр text
         hologram.setText("Hologram text");
         
