@@ -19,6 +19,8 @@ public class EntityFactory {
     }
 
     public static NPC createNPC(Location location, String uniqueTag) {
+        prepare(location);
+
         Skin skin = new Skin();
         skin.setSkinData(SKIN_DATA);
         skin.generateSkinId(uniqueTag);
@@ -39,6 +41,8 @@ public class EntityFactory {
     }
 
     public static Hologram createHologram(Location location, String uniqueTag) {
+        prepare(location);
+
         Skin skin = new Skin();
         skin.setSkinData(SKIN_DATA);
         skin.generateSkinId(uniqueTag);

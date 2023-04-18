@@ -21,22 +21,16 @@ public class EventListener implements Listener {
         Entity victum = event.getEntity();
         Entity damager = event.getDamager();
 
-        ((Player) damager).sendMessage("1");
         if(!(victum instanceof NPC)) {
-            ((Player) damager).sendMessage("2");
-
             return;
         }
-        ((Player) damager).sendMessage("3");
 
         if (!(damager instanceof Player)) {
-            ((Player) damager).sendMessage("4");
-
             return;
         }
-        ((Player) damager).sendMessage("5");
-
 
         EntityFactory.handleNPCController((Player) damager, (NPC) victum, ((NPC) victum).getController());
+
+        event.setCancelled();
     }
 }
